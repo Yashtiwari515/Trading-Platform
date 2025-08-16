@@ -1,6 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
-import {GeneralContext} from "./GeneralContext";
+import { GeneralContext } from "./GeneralContext";
 
 import { Tooltip, Grow } from "@mui/material";
 
@@ -11,9 +11,18 @@ import {
   MoreHoriz,
 } from "@mui/icons-material";
 
-import { watchlist } from "../data/data";
+// import { watchlist } from "../data/data";
+import axios from "axios";
 
 const WatchList = () => {
+  const [allWatchlists, setAllWatchlists] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:6969/allWatchlists").then((res) => {
+      setAllWatchlists(res.data);
+    });
+  }, []);
+
   return (
     <div className="watchlist-container">
       <div className="search-container">
@@ -24,11 +33,11 @@ const WatchList = () => {
           placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
           className="search"
         />
-        <span className="counts"> {watchlist.length} / 50</span>
+        <span className="counts"> {allWatchlists.length} / 50</span>
       </div>
 
       <ul className="list">
-        {watchlist.map((stock, index) => {
+        {allWatchlists.map((stock, index) => {
           return <WatchListItem stock={stock} key={index} />;
         })}
       </ul>
@@ -63,7 +72,9 @@ const WatchListItem = ({ stock }) => {
           <span className="price">{stock.price}</span>
         </div>
       </div>
-      {showWatchlistActions && <WatchListActions uid={stock.name} price={stock.price} />}
+      {showWatchlistActions && (
+        <WatchListActions uid={stock.name} price={stock.price} />
+      )}
     </li>
   );
 };
