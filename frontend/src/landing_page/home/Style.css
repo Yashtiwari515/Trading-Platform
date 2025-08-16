@@ -1,0 +1,49 @@
+.font-sans {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.font-serif {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.font-mono {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.family{
+    font-family: "Inter", sans-serif;
+}
+.para{
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    padding-right: 1.2rem;
+}
+.textsize{
+    font-size: 1.25rem;
+    color: #1f1e1e;
+}
+.signupbtn{
+    background-color: rgb(56, 134, 218);
+    border-radius: 1rem;
+}
+
+.pricingimg{
+    margin-top: 1rem;
+    transform: scale(2.2);
+}
+.pricingpara{
+    margin-right: 1rem;
+    margin-top: 2rem;
+    font-size: 13px;
+    color: #666;
+    line-height: 18px;
+    position: relative;
+    left: -20px;
+}
+.space{
+    margin-bottom: 8rem;
+}
+.aboutcss{
+    margin-bottom: 8rem;
+    margin-top: 8rem;
+}
