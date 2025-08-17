@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import {GeneralContext} from "./GeneralContext";
+import { GeneralContext } from "./GeneralContext";
 
 import "./BuyActionWindow.css";
 
@@ -12,7 +12,7 @@ const SellActionWindow = ({ uid, price }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:6969/allHoldings")
+      .get(`${import.meta.env.VITE_API_URL}/allHoldings`)
       .then((res) => {
         const holding = res.data.find((h) => h.name === uid);
         if (holding) {
@@ -30,13 +30,13 @@ const SellActionWindow = ({ uid, price }) => {
       return;
     }
 
-    axios.post("http://localhost:6969/newOrder", {
+    axios.post(`${import.meta.env.VITE_API_URL}/newOrder`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
       mode: "SELL",
     });
-    GeneralContext.closeBuyWindow(); 
+    GeneralContext.closeBuyWindow();
   };
 
   const handleCancelClick = () => {
@@ -75,12 +75,12 @@ const SellActionWindow = ({ uid, price }) => {
       <div className="buttons">
         <span>Margin received ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
         <div>
-          <Link className="btn btn-red" onClick={handleSellClick}>
+          <button className="btn btn-red" onClick={handleSellClick}>
             Sell
-          </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          </button>
+          <button to="" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel
-          </Link>
+          </button>
         </div>
       </div>
     </div>

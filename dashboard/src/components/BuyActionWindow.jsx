@@ -12,7 +12,7 @@ const BuyActionWindow = ({ uid, price }) => {
   const [stockPrice, setStockPrice] = useState(price || 0);
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:6969/newOrder", {
+    axios.post(`${import.meta.env.VITE_API_URL}/newOrder`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
@@ -57,12 +57,12 @@ const BuyActionWindow = ({ uid, price }) => {
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
+          <button className="btn btn-blue" onClick={handleBuyClick}>
             Buy
-          </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          </button>
+          <button to="" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel
-          </Link>
+          </button>
         </div>
       </div>
     </div>
