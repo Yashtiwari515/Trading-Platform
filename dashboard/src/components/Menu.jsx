@@ -129,16 +129,16 @@ const Menu = () => {
                     sessionStorage.removeItem("token");
 
                     // Call backend logout to clear cookies
-                    fetch("http://localhost:6969/logout", {
+                    fetch(`${import.meta.env.VITE_API_URL}/logout`,{
                       method: "POST",
                       credentials: "include",
                     })
                       .then(() => {
-                        window.location.href = "http://localhost:5173"; // back to login
+                        window.location.href = import.meta.env.VITE_FRONTEND_URL; // back to login
                       })
                       .catch(() => {
                         // fallback: still redirect
-                        window.location.href = "http://localhost:5173";
+                        window.location.href =import.meta.env.VITE_FRONTEND_URL;
                       });
                   }}
                   style={{ cursor: "pointer" }}
