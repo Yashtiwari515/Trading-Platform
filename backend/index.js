@@ -30,6 +30,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+
+
+mongoose.set("bufferCommands", false);
 // ✅ Connect MongoDB
 mongoose
   .connect(process.env.MONGO_URL, {
