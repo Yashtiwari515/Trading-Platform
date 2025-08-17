@@ -32,7 +32,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://trading-platform-gold.vercel.app/signup",
+       `${import.meta.env.VITE_API_URL}/signup`,
         {
           ...inputValue,
         },

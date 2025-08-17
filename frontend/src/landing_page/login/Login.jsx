@@ -31,7 +31,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://trading-platform-gold.vercel.app/login",
+        `${import.meta.env.VITE_API_URL}/login`,
         {
           ...inputValue,
         },
@@ -43,7 +43,7 @@ const Login = () => {
         handleSuccess(message);
         setTimeout(() => {
           // navigate("http://localhost:5174");
-          window.location.href = "http://localhost:5174"; 
+          window.location.href = import.meta.env.VITE_DASHBOARD_URL; 
         }, 1000);
       } else {
         handleError(message);
