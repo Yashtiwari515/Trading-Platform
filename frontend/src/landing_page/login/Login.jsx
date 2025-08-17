@@ -31,7 +31,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:6969/login",
+        "https://trading-platform-gold.vercel.app/login",
         {
           ...inputValue,
         },
