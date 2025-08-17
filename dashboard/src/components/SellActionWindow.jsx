@@ -75,12 +75,12 @@ const SellActionWindow = ({ uid, price }) => {
       <div className="buttons">
         <span>Margin received ₹{(stockQuantity * stockPrice).toFixed(2)}</span>
         <div>
-          <button className="btn btn-red" onClick={handleSellClick}>
+          <Link className="btn btn-red" onClick={handleSellClick}>
             Sell
-          </button>
-          <button to="" className="btn btn-grey" onClick={handleCancelClick}>
+          </Link>
+          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
             Cancel
-          </button>
+          </Link>
         </div>
       </div>
     </div>
