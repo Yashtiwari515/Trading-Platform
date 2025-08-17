@@ -6,11 +6,15 @@ const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:6969/allHoldings").then((res) => {
-      setAllHoldings(res.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/allHoldings`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setAllHoldings(res.data);
+      });
   }, []);
-  
+
   return (
     <>
       <h3 className="title">Holdings ({allHoldings.length})</h3>

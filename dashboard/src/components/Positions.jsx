@@ -5,9 +5,13 @@ const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:6969/allPositions").then((res) => {
-      setAllPositions(res.data);
-    });
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/allPositions`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setAllPositions(res.data);
+      });
   }, []);
   return (
     <>
