@@ -134,11 +134,11 @@ const Menu = () => {
                       credentials: "include",
                     })
                       .then(() => {
-                        window.location.href = import.meta.env.VITE_FRONTEND_URL; // back to login
+                        window.location.href = import.meta.env.VITE_FRONTEND_URL || "https://trading-platform-frontend-gamma.vercel.app"; // back to login
                       })
                       .catch(() => {
                         // fallback: still redirect
-                        window.location.href =import.meta.env.VITE_FRONTEND_URL;
+                        window.location.href =import.meta.env.VITE_FRONTEND_URL || "https://trading-platform-frontend-gamma.vercel.app";
                       });
                   }}
                   style={{ cursor: "pointer" }}
