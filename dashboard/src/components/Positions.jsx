@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { VerticalChart } from "./VerticalChart";
 const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
@@ -13,6 +13,18 @@ const Positions = () => {
         setAllPositions(res.data);
       });
   }, []);
+
+  const labels = allPositions.map((subArr) => subArr["name"]);
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Stock Price",
+        data: allPositions.map((stock) => stock.price),
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+      },
+    ],
+  };
   return (
     <>
       <h3 className="title">Positions ({allPositions.length})</h3>
@@ -51,6 +63,7 @@ const Positions = () => {
           })}
         </table>
       </div>
+      <VerticalChart data={data} />
     </>
   );
 };
