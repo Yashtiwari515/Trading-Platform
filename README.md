@@ -72,6 +72,7 @@ Database:
    /routes      # Auth + API routes
 
 ⚙️ Installation & Setup
+
 Clone the repo
 
 git clone https://github.com/Yashtiwari515/Trading-Platform.git
