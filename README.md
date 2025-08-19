@@ -73,37 +73,50 @@ Database:
 
 ⚙️ Installation & Setup
 Clone the repo
+
 git clone https://github.com/Yashtiwari515/Trading-Platform.git
+
 cd zerodha-clone
 
 Backend Setup
+
 cd backend
+
 npm install
 
 
 Create .env file:
 
 PORT=6969
+
 MONGO_URL=mongodb+srv://tiwariyash515:Yash%401234@stocktradingplatform.8pcvkit.mongodb.net/database?retryWrites=true&w=majority&appName=StockTradingPlatform
+
 TOKEN_KEY=supersecretkey123
+
 CLIENT_URL_FRONTEND=https://trading-platform-frontend-gamma.vercel.app
+
 CLIENT_URL_DASHBOARD=https://trading-platform-dashboard-two.vercel.app
 
 
-Run backend:
 
+Run backend:
 npm start
 
 Frontend Setup
+
 cd frontend
+
 npm install
 
 
 Create .env file:
 
 VITE_API_URL=https://trading-platform-gold.vercel.app
+
 VITE_FRONTEND_URL=https://trading-platform-frontend-gamma.vercel.app
+
 VITE_DASHBOARD_URL=https://trading-platform-dashboard-two.vercel.app
+
 
 
 Run frontend:
